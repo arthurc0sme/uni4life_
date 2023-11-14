@@ -18,6 +18,7 @@ Projeto com fim acadêmico e focado para aprendizado e desenvolvimento pessoal.
 - 
 ## Instruções de teste/inicialização
 
+- Executar o script sql com o MySQL Workbench
 - Abrir com o Visual Studio Code a pasta raiz do projeto
 - Configurar o arquivo connect.js com os dados do banco de dados MYSQL da máquina de teste
 - Abrir um novo terminal e executar os comandos:
