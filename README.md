@@ -15,3 +15,17 @@ Projeto com fim acadêmico e focado para aprendizado e desenvolvimento pessoal.
 ## Editor / IDE usada
 
 - Visual Studio Code
+- 
+## Instruções de teste/inicialização
+
+-Abrir com o Visual Studio Code a pasta raiz do projeto
+-Configurar o arquivo connect.js com os dados do banco de dados MYSQL da máquina de teste
+-Abrir um novo terminal e executar os comandos:
+  cd api
+  yarn start
+-Abrir outro terminal e executar os comandos:
+  cd client 
+  yarn start
+-Após isso, é possível testar as paginas a partir dos endereços, por exemplo acessando os seguintes endereços:
+  http://localhost:3000/login
+  http://localhost:3000/register
