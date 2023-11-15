@@ -17,7 +17,7 @@ Projeto com fim acadêmico e focado para aprendizado e desenvolvimento pessoal.
 - Visual Studio Code
 - 
 ## Instruções de teste/inicialização
-
+- Instalar Node.JS e React
 - Executar o script "bancotestes.sql" com o MySQL Workbench para a criação do Schema com as tabelas a serem utilizadas pelo protótipo
 - Abrir com o Visual Studio Code a pasta raiz do projeto
 - Configurar o arquivo connect.js com os dados do banco de dados MYSQL da máquina de teste
