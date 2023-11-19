@@ -1,17 +1,16 @@
 .register {
   height: 100vh;
-  background-color: rgb(190, 255, 201);
+  background: linear-gradient(to top,  rgba(207,236,188,1), rgba(108,176,60,1));
   display: flex;
   align-items: center;
   justify-content: center;
 
   .card {
-    width: 50%;
+    width: 25em;
     display: flex;
     flex-direction: row-reverse;
     background-color: white;
-    border-radius: 12px;
-    min-height: 600px;
+    border-radius: 50px;
     overflow: hidden;
 
     .left {
@@ -57,37 +56,57 @@
 
     .right {
       flex: 1;
-      padding: 60px;
+      padding: 40px 70px;
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 30px;
       justify-content: center;
 
       h1 {
       color: #555;
+      margin-top: 0;
       }
       
       form {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
         
         input {
-        border: none;
-        border-bottom: 1px solid lightgray;
-        padding: 20px 10px;
+        border: 1px solid rgb(230, 230, 230);
+        padding: 10px 10px;
+        border-radius: 10px;
+
+          &::placeholder{
+            color: #c4c4c4;
+          }
         }
         
-        button {
-          width: 50%;
+      }
+
+      .toLogin{
+      font-size: 14px;
+      text-align: center;
+      }
+
+      button {
+          width: 100%;
           padding: 10px;
           border: none;
-          background-color: #8eef93;
+          background: linear-gradient(to right, rgb(2, 167, 189), rgb(5, 168, 19)) ;
           color: white;
           font-weight: bold;
           cursor: pointer;
-        }
+          align-items: center;
+          border-radius: 14px;
       }
+    }
+
+    
+    
+    .center {
+      display: flex;
+      justify-content: center;
     }
   }
 }

@@ -33,26 +33,22 @@ const Register = () => {
   return (
     <div className="register">
       <div className="card">
-        <div className="left">
-          <h1>Uni4Life</h1>
-          <p>
-            Faça login para ser direcionado a rede social de sua universidade!
-          </p>
-          <span>Você já possui conta?</span>
-          <Link to="/login">
-          <button>Login</button>
-          </Link>
-        </div>
         <div className="right">
-          <h1>Registre-se:</h1>
+          <h1 className='center'>Registre-se:</h1>
           <form>
+            <input type="text" placeholder="Nome de exibição" name="name" onChange={handleChange}  />
             <input type="text" placeholder="Nome de usuario" name="username" onChange={handleChange} />
+            <input type="text" placeholder="CPF" name="cpf" onChange={handleChange} />
             <input type="email" placeholder="Email da instituição" name="email" onChange={handleChange}  />
             <input type="password" placeholder="Senha" name="password" onChange={handleChange}  />
-            <input type="text" placeholder="Nome de exibição" name="name" onChange={handleChange}  />
+            
             {err && err}
-            <button onClick={handleClick}>Registrar</button>
-          </form>
+
+            <button id='center' onClick={handleClick}>Registrar</button>
+            <p className='toLogin'>
+               <Link to="/login" style={{color: '#666'}}>Já tem uma conta?</Link>
+            </p>
+            </form>
         </div>
       </div>
     </div>
