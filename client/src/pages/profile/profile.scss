@@ -102,6 +102,28 @@
               }
             }
           }
+          
+          .update-link {
+            width: 70%;
+            padding: 5px;
+            border: none;
+            background-color: #5b975f;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+            background-color: #305730;
+            
+
+            }
+          }
+          
+
           button {
             border: none;
             background-color: #5271ff;
@@ -122,4 +144,5 @@
       }
     }
   }
+  
 }

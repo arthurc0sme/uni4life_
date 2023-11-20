@@ -1,110 +1,124 @@
 .login {
   height: 100vh;
-  background: linear-gradient(to top,  rgba(207,236,188,1), rgba(108,176,60,1));
+  background: linear-gradient(to top, rgba(207, 236, 188, 1), rgba(108, 176, 60, 1));
   display: flex;
+  font-family: Tahoma;
   align-items: center;
   justify-content: center;
 
   .card {
-    width: 25em;
+    width: 65%;
+    font-family: Tahoma;
     display: flex;
-    flex-direction: row-reverse;
     background-color: white;
-    border-radius: 50px;
+    border-radius: 10px;
+    min-height: 670px;
     overflow: hidden;
 
-    .left {
-      flex: 1;
-      background: linear-gradient(rgba(18, 172, 13, 0.582), rgba(34, 53, 4, 0.555)),
-        url("https://as1.ftcdn.net/v2/jpg/05/00/64/02/1000_F_500640265_73MiisvcwwPZWCJLjP3k9sTFynpLaMZQ.jpg")
+    .right {
+      flex: 4;
+      font-family: Tahoma;
+      background: linear-gradient(rgba(5, 22, 4, 1), rgba(108, 176, 60, 0.455)),
+        url("https://t4.ftcdn.net/jpg/03/19/24/51/360_F_319245189_AJSNcOAn5mFp3XzhEHmaL4RaZq4rhQ4h.jpg")
           center;
-      background-size: 790px 620px;
-      padding: 70px;
+      background-size: cover;
+      padding: 40px;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 40px;
       color: white;
 
+      
       h1 {
         // Adiciona contorno (borda) às letras dos textos desejados
         text-shadow: 2px 2px 0 rgb(7, 31, 15);
+        font-family: Tahoma;
         padding: 1px; // Adiciona algum espaço interno para o contorno
+      }
+      p{
+        font-family: Tahoma;
+        font-size: 20px;
+      }
+
+      h1 {
         font-size: 100px;
+        font-family: Tahoma;
         line-height: 100px;
       }
       
-      p {
+      .Info{
+        font-size: 25px;
+        font-family: Tahoma;
       }
 
       span {
         font-size: 14px;
+        font-family: Tahoma;
       }
       
       button {
-        width: 50%;
+        font-family: Tahoma;
+        width: 60%;
         padding: 10px;
         border: none;
-        background-color: white;
-        color: rgb(51, 153, 76);
+        background-color: rgb(51, 153, 76, 0.55);;
+        color: rgb(255,255,255,0.55);
         font-weight: bold;
         cursor: pointer;
+        align-items: left;
+        border-radius: 14px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #305730;
+          color: rgb(255,255,255);
+        }
+        
       }
     }
 
-    .right {
-      flex: 1;
-      padding: 40px 70px;
+    .left {
+      flex: 7;
+      padding: 70px;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 70px;
       justify-content: center;
-
+      font-family: Tahoma;
       h1 {
-      color: #555;
-      margin-top: 0;
+      color: rgb(4, 43, 14);
+      font-family: Tahoma;
       }
       
       form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
         
         input {
-        border: 1px solid rgb(230, 230, 230);
-        padding: 10px 10px;
-        border-radius: 10px;
-
-          &::placeholder{
-            color: #c4c4c4;
-          }
+        border: none;
+        border-bottom: 1px solid rgba(211, 211, 211, 0.74);
+        padding: 20px 10px;
         }
         
-      }
+        button {
+        width: 100%;
+        padding: 10px;
+        font-family: Tahoma;
+        border: none;
+        background-color: #5b975f;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        border-radius: 14px;
+        transition: background-color 0.3s ease;
 
-      .toRegister{
-      font-size: 14px;
-      margin-top: 5px;
-      text-align: center;
+        &:hover {
+          background-color: #305730;
+        }
+        }
       }
-
-      button {
-          width: 100%;
-          padding: 10px;
-          border: none;
-          background: linear-gradient(to right, rgb(2, 167, 189), rgb(5, 168, 19)) ;
-          color: white;
-          font-weight: bold;
-          cursor: pointer;
-          align-items: center;
-          border-radius: 14px;
-      }
-    }
-
-    
-    
-    .center {
-      display: flex;
-      justify-content: center;
     }
   }
 }

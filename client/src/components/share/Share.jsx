@@ -4,11 +4,20 @@ import Map from "../../assets/map.png";
 import Friend from "../../assets/friend.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { makeRequest } from "../../axios";
 
 
 const Share = () => {
+  const {currentUser} = useContext(AuthContext)
+
+  const { data: userData, isLoading, error } = useQuery({
+    queryKey: ['user', currentUser.id],
+    queryFn: () =>
+      makeRequest.get(`/users/find/${currentUser.id}`).then((res) => res.data),
+  });
+
+
   const [file, setFile] = useState(null)
   const [desc, setDesc] = useState("")
 
@@ -16,7 +25,7 @@ const Share = () => {
     try{
       const formData = new FormData();
       formData.append("file", file)
-      const res = await makeRequest.post("/upload", formData);
+      const res = await makeRequest.post("/upload/", formData);
       return res.data
     } catch(err){
       console.log(err)
@@ -24,8 +33,8 @@ const Share = () => {
 
   }
 
-  const {currentUser} = useContext(AuthContext)
-
+  
+  
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
@@ -52,16 +61,21 @@ const Share = () => {
       <div className="container">
         <div className="top">
           <div className="left">
-            <img
-              src={currentUser.profilePic}
-              alt=""
-            />
-            <input 
-            type="text" 
-            placeholder={`Compartilhe o que você está pensando ${currentUser.name}?`} 
-            onChange={e=>setDesc(e.target.value)}
-            value = {desc}
-             />
+          {isLoading ? (
+              'Carregando...'
+            ) : error ? (
+              'Erro ao carregar os dados do usuário'
+            ) : (
+              <>
+                <img src={userData.profilePic ? `http://localhost:8800/upload/${userData.profilePic}` : "http://localhost:8800/upload/user.avif"} alt="" /> 
+                <input
+                  type="text"
+                  placeholder={`Compartilhe o que você está pensando ${userData.name}`}
+                  onChange={(e) => setDesc(e.target.value)}
+                  value={desc}
+                />
+              </>
+            )}
           </div>
           <div className="right">
             {file && <img className="file" alt = "" src={URL.createObjectURL(file)}/>}
@@ -77,10 +91,6 @@ const Share = () => {
                 <span>Adicionar Imagem</span>
               </div>
             </label>
-            <div className="item">
-              <img src={Friend} alt="" />
-              <span>Marque amigos</span>
-            </div>
           </div>
           <div className="right">
             <button onClick= {handleClick} >Compartilhar</button>

@@ -1,61 +1,23 @@
 .register {
   height: 100vh;
-  background: linear-gradient(to top,  rgba(207,236,188,1), rgba(108,176,60,1));
+  background: linear-gradient(to top, rgba(207, 236, 188, 1), rgba(108, 176, 60, 1));
   display: flex;
+  font-family: Tahoma;
   align-items: center;
   justify-content: center;
 
   .card {
-    width: 25em;
+    width: 656px;
+    font-family: Tahoma;
     display: flex;
     flex-direction: row-reverse;
     background-color: white;
-    border-radius: 50px;
+    border-radius: 60px;
     overflow: hidden;
-
-    .left {
-      flex: 1;
-      background: linear-gradient(rgba(18, 172, 13, 0.582), rgba(34, 53, 4, 0.555)),
-        url("https://as1.ftcdn.net/v2/jpg/05/00/64/02/1000_F_500640265_73MiisvcwwPZWCJLjP3k9sTFynpLaMZQ.jpg")
-          center;
-      background-size: 790px 620px;
-      padding: 70px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      color: white;
-
-      h1 {
-        // Adiciona contorno (borda) às letras dos textos desejados
-        text-shadow: 2px 2px 0 rgb(7, 31, 15);
-        padding: 1px; // Adiciona algum espaço interno para o contorno
-      }
-
-      h1 {
-        font-size: 100px;
-        line-height: 100px;
-      }
-      
-      p {
-      }
-
-      span {
-        font-size: 14px;
-      }
-      
-      button {
-        width: 50%;
-        padding: 10px;
-        border: none;
-        background-color: white;
-        color: rgb(51, 153, 76);
-        font-weight: bold;
-        cursor: pointer;
-      }
-    }
 
     .right {
       flex: 1;
+      font-family: Tahoma;
       padding: 40px 70px;
       display: flex;
       flex-direction: column;
@@ -63,49 +25,59 @@
       justify-content: center;
 
       h1 {
-      color: #555;
-      margin-top: 0;
+        color: rgb(4, 43, 14);
+        font-family: Tahoma;
+        margin-top: 0;
       }
-      
+
       form {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        
-        input {
-        border: 1px solid rgb(230, 230, 230);
-        padding: 10px 10px;
-        border-radius: 10px;
+        font-family: Tahoma;
 
-          &::placeholder{
-            color: #c4c4c4;
+        input {
+          border: 1px solid rgb(230, 230, 230);
+          padding: 10px 10px;
+          font-family: Tahoma;
+          border-radius: 10px;
+
+          &::placeholder {
+            font-family: Tahoma;
+            color: rgb(4, 43, 14);
           }
         }
-        
       }
 
-      .toLogin{
-      font-size: 14px;
-      text-align: center;
+      .toLogin {
+        font-size: 12px;
+        font-family: Tahoma;
+        text-align: center;
       }
 
       button {
-          width: 100%;
-          padding: 10px;
-          border: none;
-          background: linear-gradient(to right, rgb(2, 167, 189), rgb(5, 168, 19)) ;
-          color: white;
-          font-weight: bold;
-          cursor: pointer;
-          align-items: center;
-          border-radius: 14px;
+        width: 100%;
+        font-family: Tahoma;
+        padding: 10px;
+        border: none;
+        background-color: #5b975f;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        border-radius: 14px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          font-family: Tahoma;
+          background-color: #305730;
+        }
       }
     }
 
-    
-    
     .center {
       display: flex;
+      font-family: Tahoma;
       justify-content: center;
     }
   }

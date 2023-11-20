@@ -48,6 +48,16 @@
           }
         }
       }
+
+      .home-icon-wrapper {
+        color: rgb(2, 77, 33); // verde escuro
+        &:active {
+          color: #8aff80; // verde limão
+        }
+      }
+    }
+
+
     }
 
     .right {
@@ -58,7 +68,21 @@
       @include mobile{
         display: none;
       }
-
+      .logout-button {
+        padding: 10px;
+        border: none;
+        background-color: #5b975f;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      
+        &:hover {
+          background-color: #305730;
+        }
+      }
+    
       .user {
         display: flex;
         align-items: center;
@@ -81,4 +105,4 @@
       }
     }
   }
-}
+

@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/authContext";
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { makeRequest } from "../../axios";
 import moment from "moment";
-
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Comments = ({postId}) => {
 
@@ -36,6 +36,19 @@ const Comments = ({postId}) => {
     setDesc("")
   }
 
+  const deleteMutation = useMutation({
+    mutationFn: (commentId) => {
+        return makeRequest.delete(`/comments/${commentId}`);
+    },
+    onSuccess: () => {
+        // Invalidate and refetch
+        queryClient.invalidateQueries({ queryKey: ["comments"] });
+    },
+});
+
+  const handleDeleteComment = (commentId) => {
+      deleteMutation.mutate(commentId);
+  };
 
   return (
     <div className="comments">
@@ -48,12 +61,13 @@ const Comments = ({postId}) => {
       ? "Carregando..." 
       : data.map((comment) => (
         <div className="comment" key={comment.id}>
-          <img src={comment.profilePicture} alt="" />
+          <img src={comment.profilePic} alt="" />
           <div className="info">
             <span>{comment.name}</span>
             <p>{comment.desc}</p>
           </div>
           <span className="date">{moment(comment.createdAt).fromNow()}</span>
+          {comment.userId === currentUser.id && (<DeleteIcon onClick={() => handleDeleteComment(comment.id)} />)}
         </div>
       ))}
     </div>
