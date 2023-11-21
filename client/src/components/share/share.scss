@@ -1,12 +1,12 @@
 @import "../../style.scss";
-
+$dayModeColor: #e7f0e1;;
 .share {
   @include themify($themes) {
     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     border-radius: 20px;
-    background-color: themed("bg");
+    background-color: $dayModeColor;
     color: themed("textColor");
     margin-bottom: 20px;
 
@@ -84,12 +84,18 @@
         }
         .right {
           button {
+            padding: 10px;
             border: none;
-            padding: 5px;
+            background-color: #5b975f;
             color: white;
+            font-weight: bold;
             cursor: pointer;
-            background-color: #5271ff;
-            border-radius: 3px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+      
+            &:hover {
+          background-color: #305730;
+        }
           }
         }
       }

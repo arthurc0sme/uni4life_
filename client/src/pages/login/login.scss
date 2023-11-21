@@ -61,8 +61,8 @@
         width: 60%;
         padding: 10px;
         border: none;
-        background-color: rgb(51, 153, 76, 0.55);;
-        color: rgb(255,255,255,0.55);
+        background-color: #5b975f;;
+        color: rgb(255,255,255);
         font-weight: bold;
         cursor: pointer;
         align-items: left;
@@ -85,11 +85,15 @@
       gap: 70px;
       justify-content: center;
       font-family: Tahoma;
+      text-align: center; // Center the text
       h1 {
       color: rgb(4, 43, 14);
       font-family: Tahoma;
       }
-      
+      .logo{
+        width: 180px;
+        margin: 0 auto; // Center the logo
+      }
       form {
         display: flex;
         flex-direction: column;

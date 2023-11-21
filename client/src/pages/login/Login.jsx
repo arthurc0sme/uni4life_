@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
+import Logo from "../../assets/logo.png";
 
 const Login = () => {
   
@@ -45,6 +46,7 @@ const Login = () => {
           </Link>
         </div>
         <div className="left">
+        <img src={Logo} alt="Uni4Life Logo" className="logo" />
           <h1>Faça seu login:</h1>
           <form>
             <input type="text" placeholder="Nome de Usuário" name="username" onChange={handleChange} />

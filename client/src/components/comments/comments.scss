@@ -25,12 +25,18 @@
       }
 
       button{
-        border: none;
-        background-color: #5271ff;
-        color: white;
         padding: 10px;
+        border: none;
+        background-color: #5b975f;
+        color: white;
+        font-weight: bold;
         cursor: pointer;
-        border-radius: 3px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      
+        &:hover {
+          background-color: #305730;
+        }
       }
     }
 
@@ -52,7 +58,7 @@
         }
 
         p{
-          color:themed("textColorSoft")
+          color:themed("textColor")
         }
       }
 

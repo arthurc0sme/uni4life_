@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/authContext";
+import Logo from "../../assets/logo.png";
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
@@ -24,7 +25,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left">
-          <span>Uni4Life</span>
+      <img src={Logo} alt="Uni4Life Logo" className="logo" />
         <Link to="/" style={{ textDecoration: "none" }}>
         <span className="home-icon-wrapper">   
           <HomeOutlinedIcon />
@@ -32,15 +33,10 @@ const Navbar = () => {
         </Link>
         <div className="search">
           <SearchOutlinedIcon />
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="O que você está procurando?" />
         </div>
       </div>
       <div className="right">
-      {darkMode ? (
-          <WbSunnyOutlinedIcon onClick={toggle} />
-        ) : (
-          <DarkModeOutlinedIcon onClick={toggle} />
-        )}
          {currentUser && (
           <button className="logout-button" onClick={handleLogout}>Logout</button>
         )}

@@ -3,6 +3,7 @@ import Friends from "../../assets/1.png";
 import Groups from "../../assets/2.png";
 import Events from "../../assets/6.png";
 import Gallery from "../../assets/8.png";
+
 import { AuthContext } from "../../context/authContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";

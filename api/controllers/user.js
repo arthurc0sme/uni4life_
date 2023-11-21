@@ -28,7 +28,7 @@ export const updateuser = (req, res) => {
 
         
 
-    const q = "UPDATE users SET `name` = COALESCE(?, `name`), `password` = COALESCE(?, `password`), `coverPic` = COALESCE(?, `coverPic`), `profilePic` = COALESCE(?, `profilePic`) WHERE id = ?";
+    const q = "UPDATE users SET `name` = COALESCE(?, `name`), `password` = COALESCE(?, `password`), `cidade` = COALESCE(?, `cidade`), `instituicao` = COALESCE(?, `instituicao`), `curso` = COALESCE(?, `curso`), `semestre` = COALESCE(?, `semestre`), `coverPic` = COALESCE(?, `coverPic`), `profilePic` = COALESCE(?, `profilePic`) WHERE id = ?";
 
     console.log("Dados recebidos no backend:", req.body);
     db.query(
@@ -36,6 +36,10 @@ export const updateuser = (req, res) => {
         [
             req.body.name || null,
             hashedPassword || null,
+            req.body.cidade || null,
+            req.body.instituicao || null,
+            req.body.curso || null,
+            req.body.semestre || null,
             req.body.coverPic || null,
             req.body.profilePic || null,
             userId

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./register.scss";
 import axios from "axios";
-
+import Logo from "../../assets/logo.png";
 
 const Register = () => {
   const navigate = useNavigate();

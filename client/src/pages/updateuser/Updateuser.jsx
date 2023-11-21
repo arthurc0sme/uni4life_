@@ -12,7 +12,11 @@ const UpdateUser = () => {
   const navigate = useNavigate();
   const [texts, setTexts] = useState({
     name:"",
-    password:""
+    password:"",
+    cidade:"",
+    instituicao:"",
+    curso:"",
+    semestre:""
   })
 
   const { data: userData, isLoading, error2 } = useQuery({
@@ -96,12 +100,16 @@ const UpdateUser = () => {
           <h1>O que deseja atualizar?</h1>
           <p>Deixe o campo em branco para manter o valor atual</p>
           <form>
-            <input type="text" placeholder="Novo nome de exibição" name="name" onChange={handleChange}  />
-            <input type="password" placeholder="Nova senha" name="password" onChange={handleChange}  />
             <p>Escolha uma nova imagem de capa:</p>
             <input type="file" accept="image/*" name="coverPic" onChange={handleCoverChange} />
             <p>Escolha uma nova imagem de perfil:</p>
             <input type="file" accept="image/*" name="profilePic" onChange={handleProfileChange} />
+            <input type="text" placeholder="Novo nome de exibição" name="name" maxLength="45" onChange={handleChange}  />
+            <input type="password" placeholder="Nova senha" name="password" onChange={handleChange}  />
+            <input type="text" placeholder="Nova cidade" name="cidade" maxLength="100"  onChange={handleChange}/>
+            <input type="text" placeholder="Nova instituição" name="instituicao" maxLength="100"onChange={handleChange}/>
+            <input type="text" placeholder="Novo curso" name="curso" maxLength="100"onChange={handleChange}/>
+            <input type="text" placeholder="Novo semestre" name="semestre" maxLength="100" onChange={handleChange}/>
             {err && (
                       <div>
                         <p>Ocorreu um erro:</p>

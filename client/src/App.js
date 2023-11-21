@@ -13,7 +13,7 @@ import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import "./style.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient,QueryClientProvider} from '@tanstack/react-query'
@@ -25,6 +25,10 @@ function App() {
   const { darkMode } = useContext(DarkModeContext);
 
   const queryClient = new QueryClient()
+
+  const setTitle = (newTitle) => {
+    document.title = newTitle;
+  };
 
   const Layout = () => {
     return (
@@ -82,6 +86,10 @@ function App() {
       element: <Register />,
     },
   ]);
+
+  useEffect(() => {
+    setTitle("Uni4Life");
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
