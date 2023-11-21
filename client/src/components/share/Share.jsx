@@ -67,7 +67,7 @@ const Share = () => {
               'Erro ao carregar os dados do usuário'
             ) : (
               <>
-                <img src={userData.profilePic ? `http://localhost:8800/upload/${userData.profilePic}` : "http://localhost:8800/upload/user.avif"} alt="" /> 
+              <img src={userData.profilePic ? `http://localhost:8800/upload/${userData.profilePic}` : "http://localhost:8800/upload/user.avif"} alt="" /> 
                 <input
                   type="text"
                   placeholder={`Compartilhe o que você está pensando ${userData.name}`}

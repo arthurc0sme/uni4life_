@@ -18,6 +18,12 @@ const Comments = ({postId}) => {
       })
   })
 
+  const { data: userData, isLoading, error2 } = useQuery({
+    queryKey: ['user', currentUser.id],
+    queryFn: () =>
+      makeRequest.get(`/users/find/${currentUser.id}`).then((res) => res.data),
+  });  
+
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
@@ -53,7 +59,7 @@ const Comments = ({postId}) => {
   return (
     <div className="comments">
       <div className="write">
-        <img src={currentUser.profilePic} alt="" />
+      <img src={userData.profilePic ? `http://localhost:8800/upload/${userData.profilePic}` : "http://localhost:8800/upload/user.avif"} alt="" /> 
         <input type="text" placeholder="Escreva um comentário" value = {desc} onChange={(e) => setDesc(e.target.value)} />
         <button onClick={handleClick}>Enviar</button>
       </div>
@@ -61,7 +67,7 @@ const Comments = ({postId}) => {
       ? "Carregando..." 
       : data.map((comment) => (
         <div className="comment" key={comment.id}>
-          <img src={comment.profilePic} alt="" />
+          <img src={comment.profilePic ? `http://localhost:8800/upload/${comment.profilePic}` : "http://localhost:8800/upload/user.avif"} alt="" /> 
           <div className="info">
             <span>{comment.name}</span>
             <p>{comment.desc}</p>

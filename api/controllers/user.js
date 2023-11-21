@@ -18,18 +18,26 @@ export const updateuser = (req, res) => {
    
     const userId = parseInt(req.body.userId);
 
-    const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+    let hashedPassword = null;
 
-    const q = "UPDATE users SET `name` = ?, `password` =?,`coverPic` = ?, `profilePic` = ? WHERE id=? "
+    if (req.body.password !== '') {
+        // Se uma nova senha foi fornecida, então geramos um novo hash
+        const salt = bcrypt.genSaltSync(10);
+        hashedPassword = bcrypt.hashSync(req.body.password, salt);
+    }
+
+        
+
+    const q = "UPDATE users SET `name` = COALESCE(?, `name`), `password` = COALESCE(?, `password`), `coverPic` = COALESCE(?, `coverPic`), `profilePic` = COALESCE(?, `profilePic`) WHERE id = ?";
 
     console.log("Dados recebidos no backend:", req.body);
-    db.query(q,
-            [
-            req.body.name,
-            hashedPassword,
-            req.body.coverPic || userId.coverPic, // Usar a URL existente se coverPic for undefined
-            req.body.profilePic || userId.profilePic, // Usar a URL existente se profilePic for undefined
+    db.query(
+        q,
+        [
+            req.body.name || null,
+            hashedPassword || null,
+            req.body.coverPic || null,
+            req.body.profilePic || null,
             userId
         ],
         (err,data) => {

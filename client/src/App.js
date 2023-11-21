@@ -84,10 +84,13 @@ function App() {
   ]);
 
   return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <RouterProvider router={router} />
+      </div>
+    </QueryClientProvider>
   );
 }
+
 
 export default App;
